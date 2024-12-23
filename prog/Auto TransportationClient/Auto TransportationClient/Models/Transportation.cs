@@ -6,7 +6,9 @@ public class Transportation
     public string From { get; set; } = string.Empty;
     public string To { get; set; } = string.Empty;
     public int Distance { get; set; } 
-    public double FuelVolume {  get; set; } 
+    public double FuelVolume {  get; set; }
+
+    public DateTime Date { get; set; }
 
     public Guid FuelId { get; set; }
     public Guid DriverId { get; set; }

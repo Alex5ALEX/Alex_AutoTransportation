@@ -32,6 +32,15 @@ public class CustomerController : ControllerBase
         return model != null ? Ok(model) : NotFound();
     }
 
+
+    [HttpGet("id_person/{id}")]
+    public async Task<IActionResult> GetByIdPerson(Guid id)
+    {
+        var model = await _context.Customers.Where(f => f.PersonId == id).Include(a => a.Person).Include(c => c.Transportations).SingleOrDefaultAsync();
+        return model != null ? Ok(model) : NotFound();
+    }
+
+
     // POST api/<FuelController>
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] Customer customer)

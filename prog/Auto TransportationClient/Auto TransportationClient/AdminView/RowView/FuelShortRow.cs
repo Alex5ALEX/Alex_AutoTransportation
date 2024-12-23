@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Auto_TransportationClient.Models;
 using Auto_TransportationClient.AdminView.AutoView;
+using Auto_TransportationClient.AdminView.TransportationView;
 
 namespace Auto_TransportationClient.AdminView.RowView;
 public partial class FuelShortRow : UserControl
@@ -18,6 +19,10 @@ public partial class FuelShortRow : UserControl
     private AutoAdd AutoAdd;
 
     private AutoEdit AutoEdit;
+
+    private TransportationAdd TransportationAdd;
+
+    private TransportationEdit TransportationEdit;  
 
     public FuelShortRow(AutoAdd autoAdd,Fuel fuel)
     {
@@ -50,11 +55,50 @@ public partial class FuelShortRow : UserControl
     }
 
 
+
+
+    public FuelShortRow(TransportationAdd transportationAdd, Fuel fuel)
+    {
+        Fuel = fuel;
+        TransportationAdd = transportationAdd;
+
+        InitializeComponent();
+        InitData();
+
+        groupBox1.Click += SelectTransportationAdd;
+        label1.Click += SelectTransportationAdd;
+        label2.Click += SelectTransportationAdd;
+        label3.Click += SelectTransportationAdd;
+        label4.Click += SelectTransportationAdd;
+    }
+
+
+    public FuelShortRow(TransportationEdit transportationEdit, Fuel fuel)
+    {
+        Fuel = fuel;
+        TransportationEdit = transportationEdit;
+
+        InitializeComponent();
+        InitData();
+
+        groupBox1.Click += SelectTransportationEdit;
+        label1.Click += SelectTransportationEdit;
+        label2.Click += SelectTransportationEdit;
+        label3.Click += SelectTransportationEdit;
+        label4.Click += SelectTransportationEdit;
+    }
+
+
+
+
     private void InitData()
     {
         label2.Text = Fuel.Brand;
         label4.Text = Fuel.Type;
     }
+
+
+
 
     private void SelectAutoAdd(object sender,EventArgs e)
     {
@@ -66,6 +110,19 @@ public partial class FuelShortRow : UserControl
     {
         AutoEdit.choisedFuel = Fuel;
         AutoEdit.ShowFuel();
+    }
+
+
+    private void SelectTransportationAdd(object sender, EventArgs e)
+    {
+        TransportationAdd.choisedFuel = Fuel;
+        TransportationAdd.ShowFuel();
+    }
+
+    private void SelectTransportationEdit(object sender, EventArgs e)
+    {
+        TransportationEdit.choisedFuel = Fuel;
+        TransportationEdit.ShowFuel();
     }
 
 }

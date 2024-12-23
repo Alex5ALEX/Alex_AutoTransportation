@@ -34,14 +34,14 @@ public class DriverController : ControllerBase
 
     // POST api/<FuelController>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] Driver customer)
+    public async Task<IActionResult> Post([FromBody] Driver value)
     {
-        customer.Id = new Guid();
+        value.Id = new Guid();
 
-        await _context.Drivers.AddAsync(customer);
+        await _context.Drivers.AddAsync(value);
         _context.SaveChanges();
 
-        return Ok(customer);
+        return Ok(value);
     }
 
     // PUT api/<FuelController>/5

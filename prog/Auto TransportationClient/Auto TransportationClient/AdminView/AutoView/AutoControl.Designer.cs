@@ -52,6 +52,7 @@ partial class AutoControl
         // 
         // flowLayoutPanel1
         // 
+        flowLayoutPanel1.AutoScroll = true;
         flowLayoutPanel1.Location = new Point(9, 19);
         flowLayoutPanel1.Name = "flowLayoutPanel1";
         flowLayoutPanel1.Size = new Size(556, 593);

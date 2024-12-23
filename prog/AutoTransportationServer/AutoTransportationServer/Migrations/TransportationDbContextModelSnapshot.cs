@@ -40,7 +40,7 @@ namespace AutoTransportationServer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c1416282-ebad-4aea-b84d-d41c340a34a0"),
+                            Id = new Guid("c74c153e-aa0f-450d-aaba-789110a9a40a"),
                             PersonId = new Guid("00000000-0000-0000-0000-000000000001")
                         });
                 });
@@ -210,6 +210,9 @@ namespace AutoTransportationServer.Migrations
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("Distance")
                         .HasColumnType("int");

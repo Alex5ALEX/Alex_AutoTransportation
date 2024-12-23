@@ -1,4 +1,6 @@
 using Auto_TransportationClient.AdminView;
+using Auto_TransportationClient.ViewReg;
+using Auto_TransportationClient.CustomerView;
 
 
 namespace Auto_TransportationClient;
@@ -6,18 +8,31 @@ namespace Auto_TransportationClient;
 
 internal static class Program
 {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
+
     [STAThread]
     static void Main()
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
 
-        //var customer = new CustomerController(new HttpClient()).GetAll();
 
         ApplicationConfiguration.Initialize();
-        Application.Run(new AdminPanel());
+
+
+        //Application.Run(new AdminPanel());
+
+
+        RegistrationForm reg = new RegistrationForm();
+        Application.Run(reg);
+
+
+        if (reg.result == "Customer")
+        {
+            Application.Run(new ClientForm(reg.person));
+        }
+        else if (reg.result == "Admin")
+        {
+            Application.Run(new AdminPanel());
+        }
+
+
     }
 }

@@ -51,27 +51,19 @@ public class CustomerController
     }
 
 
-    /*
+    
     public async Task<Customer> GetByIdPerson(Guid Id)
     {
         var response = await httpClient.GetAsync(urlCustomer + $"/id_person/{Id}");
-        //var response = await httpClient.GetAsync(url + $"/{Id.ToString()}");
 
-
-        if (!response.IsSuccessStatusCode)
-        {
-            return new Customer();
-            //throw new Exception($"Ошибка при получении данных: {response.StatusCode}");
-        }
+        if (!response.IsSuccessStatusCode) { return null; }
 
         var data = await response.Content.ReadAsStringAsync();
 
         var content = JsonConvert.DeserializeObject<Customer>(data);
 
         return content;
-
-
-    }*/
+    }
 
 
 

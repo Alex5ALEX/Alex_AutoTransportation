@@ -2,7 +2,9 @@
 using Auto_TransportationClient.AdminView.AdminView;
 using Auto_TransportationClient.AdminView.FuelView;
 using Auto_TransportationClient.AdminView.AutoView;
-
+using Auto_TransportationClient.AdminView.DriverView;
+using Auto_TransportationClient.AdminView.TransportationView;
+using Auto_TransportationClient.AdminView.ReportView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,14 +26,9 @@ public partial class AdminPanel : Form
     AdminControl adminControl;
     FuelControl fuelControl;
     AutoControl autoControl;
-    /*ServicesControl servicesControl;
-    ProviderControl providerControl;
-    ManufactureControl manufactureControl;
-    ProductControl productControl;
-    OrderControl orderControl;
+    DriverControl driverControl;
+    TransportationControl transportationControl;
     ReportControl reportControl;
-    AdminControl adminControl;*/
-
 
 
     public AdminPanel()
@@ -51,18 +48,12 @@ public partial class AdminPanel : Form
         optionAdmin.Click += InitAdminControl;
         optionFuel.Click += InitFuelControl;
         optionAuto.Click += InitAutoControl;
-        /*
-        customerOption.Click += InitCustomerControl;
-        servicesOption.Click += InitServicesControl;
-        providerOption.Click += InitProviderControl;
-        manufactureOption.Click += InitManufactureControl;
-        productOption.Click += InitProductControl;
-        orderOption.Click += InitOrderControl;
-        ReportOption.Click += InitReportControl;
-        adminOprion.Click += InitAdminControl;*/
+        optionDriver.Click += InitDriverControl;
+        optionTransportations.Click += InitTransportationControl;
+        optionReport.Click += InitReportControl;
     }
 
-
+  
 
     private void InitializeData()
     {
@@ -72,27 +63,18 @@ public partial class AdminPanel : Form
         adminControl = new AdminControl(this);
         fuelControl = new FuelControl(this);
         autoControl = new AutoControl(this);
-        /*
-        servicesControl = new ServicesControl(this);
-        providerControl = new ProviderControl(this);
-        manufactureControl = new ManufactureControl(this);
-        productControl = new ProductControl(this);
-        orderControl = new OrderControl(this);
+        driverControl = new DriverControl(this);
+        transportationControl = new TransportationControl(this);
         reportControl = new ReportControl(this);
-        adminControl = new AdminControl(this);*/
+
 
         Controls.Add(customerControl);
         Controls.Add(adminControl);
         Controls.Add(fuelControl);
         Controls.Add(autoControl);
-        /*
-        Controls.Add(servicesControl);
-        Controls.Add(providerControl);
-        Controls.Add(manufactureControl);
-        Controls.Add(productControl);
-        Controls.Add(orderControl);
+        Controls.Add(driverControl);
+        Controls.Add(transportationControl);
         Controls.Add(reportControl);
-        Controls.Add(adminControl);*/
 
         HideMainControls();
         HideMenuControl();
@@ -124,36 +106,20 @@ public partial class AdminPanel : Form
         autoControl.Visible = true;
     }
 
-    /*
-    private void InitServicesControl(object sender, EventArgs e)
+
+    private void InitDriverControl(object sender, EventArgs e)
     {
         HideAllControls();
-        servicesControl.Visible = true;
+        driverControl.Visible = true;
     }
 
-    private void InitProviderControl(object sender, EventArgs e)
-    {
-        HideAllControls();
-        providerControl.Visible = true;
-    }
 
-    private void InitManufactureControl(object sender, EventArgs e)
+    private void InitTransportationControl(object sender, EventArgs e)
     {
         HideAllControls();
-        manufactureControl.Visible = true;
+        transportationControl.Visible = true;
     }
-
-    private void InitProductControl(object sender, EventArgs e)
-    {
-        HideAllControls();
-        productControl.Visible = true;
-    }
-
-    private void InitOrderControl(object sender, EventArgs e)
-    {
-        HideAllControls();
-        orderControl.Visible = true;
-    }
+    
 
     private void InitReportControl(object sender, EventArgs e)
     {
@@ -161,11 +127,7 @@ public partial class AdminPanel : Form
         reportControl.Visible = true;
     }
 
-    private void InitAdminControl(object sender, EventArgs e)
-    {
-        HideAllControls();
-        adminControl.Visible = true;
-    }*/
+
 
     //controls
 
@@ -188,14 +150,9 @@ public partial class AdminPanel : Form
         adminControl.Visible = false;
         fuelControl.Visible = false;
         autoControl.Visible = false;
-        /*
-        servicesControl.Visible = false;
-        providerControl.Visible = false;
-        manufactureControl.Visible = false;
-        productControl.Visible = false;
-        orderControl.Visible = false;
+        driverControl.Visible = false;
+        transportationControl.Visible = false;
         reportControl.Visible = false;
-        adminControl.Visible = false;*/
     }
 
 

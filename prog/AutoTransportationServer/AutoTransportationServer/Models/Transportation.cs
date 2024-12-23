@@ -8,6 +8,8 @@ public class Transportation
     public int Distance { get; set; } 
     public double FuelVolume {  get; set; } 
 
+    public DateTime Date { get; set; } 
+
     public Guid FuelId { get; set; }
     public Guid DriverId { get; set; }
     public Guid CustomerId { get; set; }
