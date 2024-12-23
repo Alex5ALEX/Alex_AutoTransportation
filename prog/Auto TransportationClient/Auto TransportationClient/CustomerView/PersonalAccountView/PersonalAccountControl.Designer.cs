@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            labelMenuName = new Label();
-            buttonMenu = new Button();
             textBoxPassword = new TextBox();
             label2 = new Label();
             textBoxLogin = new TextBox();
@@ -46,6 +44,8 @@
             textBoxName = new TextBox();
             textBoxSurname = new TextBox();
             buttonEdit = new Button();
+            labelMenuName = new Label();
+            buttonMenu = new Button();
             pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -73,28 +73,6 @@
             groupBox1.Size = new Size(458, 604);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            // 
-            // labelMenuName
-            // 
-            labelMenuName.AutoSize = true;
-            labelMenuName.Font = new Font("Segoe UI", 30F);
-            labelMenuName.Location = new Point(89, 3);
-            labelMenuName.Name = "labelMenuName";
-            labelMenuName.Size = new Size(328, 54);
-            labelMenuName.TabIndex = 16;
-            labelMenuName.Text = "Personal Account";
-            // 
-            // buttonMenu
-            // 
-            buttonMenu.BackColor = SystemColors.ControlLightLight;
-            buttonMenu.FlatStyle = FlatStyle.Flat;
-            buttonMenu.Font = new Font("Segoe UI", 12F);
-            buttonMenu.Location = new Point(3, 3);
-            buttonMenu.Name = "buttonMenu";
-            buttonMenu.Size = new Size(80, 55);
-            buttonMenu.TabIndex = 15;
-            buttonMenu.Text = "Menu";
-            buttonMenu.UseVisualStyleBackColor = false;
             // 
             // textBoxPassword
             // 
@@ -235,8 +213,31 @@
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = false;
             // 
+            // labelMenuName
+            // 
+            labelMenuName.AutoSize = true;
+            labelMenuName.Font = new Font("Segoe UI", 30F);
+            labelMenuName.Location = new Point(89, 3);
+            labelMenuName.Name = "labelMenuName";
+            labelMenuName.Size = new Size(328, 54);
+            labelMenuName.TabIndex = 16;
+            labelMenuName.Text = "Personal Account";
+            // 
+            // buttonMenu
+            // 
+            buttonMenu.BackColor = SystemColors.ControlLightLight;
+            buttonMenu.FlatStyle = FlatStyle.Flat;
+            buttonMenu.Font = new Font("Segoe UI", 12F);
+            buttonMenu.Location = new Point(3, 3);
+            buttonMenu.Name = "buttonMenu";
+            buttonMenu.Size = new Size(80, 55);
+            buttonMenu.TabIndex = 15;
+            buttonMenu.Text = "Menu";
+            buttonMenu.UseVisualStyleBackColor = false;
+            // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = Properties.Resources.customer1;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(179, 115);
             pictureBox1.Name = "pictureBox1";

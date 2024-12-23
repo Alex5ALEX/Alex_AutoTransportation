@@ -50,6 +50,19 @@ public class TransportationController
         return transportation;
     }
 
+    public async Task<List<Transportation>> GetByIdCustomer(Guid Id)
+    {
+        var response = await httpClient.GetAsync(urlTransportation + $"/id_customer/{Id}");
+
+        if (!response.IsSuccessStatusCode) { return null; }
+
+        var data = await response.Content.ReadAsStringAsync();
+
+        var transportation = JsonConvert.DeserializeObject<List<Transportation>>(data);
+
+        return transportation;
+    }
+
 
     public async Task<bool> Post(Transportation transportation)
     {

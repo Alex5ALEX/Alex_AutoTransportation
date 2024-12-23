@@ -1,16 +1,16 @@
 ﻿using Auto_TransportationClient.Controller;
+using Auto_TransportationClient.Models;
+
 
 namespace Auto_TransportationClient.CustomerView;
 
 public partial class CatalogControl : UserControl
 {
     private ClientForm mainForm;
-    /*
-    public ProductController productController;
-    public ServicesController servicesController;
-    public ProviderController providerController;
-    public ManufactureController manufactureController;
-    */
+
+    public FuelController fuelController;
+
+    
     public CatalogControl(ClientForm mainForm)
     {
         this.mainForm = mainForm;
@@ -23,40 +23,22 @@ public partial class CatalogControl : UserControl
     }
 
     public void InitData()
-    {/*
-        productController = new ProductController(mainForm.httpClient);
-        servicesController = new ServicesController(mainForm.httpClient);
-        providerController = new ProviderController(mainForm.httpClient);
-        manufactureController = new ManufactureController(mainForm.httpClient);*/
-    }
-
-    public void UpdateData()
     {
-        UpdateProductRow();
-        UpdateServicesRow();
+        fuelController = new FuelController(mainForm.httpClient);
     }
-    public async void UpdateProductRow()
-    {/*
-        flowLayoutPanelProduct.Controls.Clear();
 
-        List<Product> products = await productController.GetAllProductsAsync();
+    public async void UpdateData()
+    {
+        flowLayoutPanelFuel.Controls.Clear();
 
-        foreach(var product in products)
+        var fuel = await fuelController.GetAll();
+
+        foreach (var item in fuel) 
         {
-            flowLayoutPanelProduct.Controls.Add(new ProductCatalogControl(this, product));
-        }*/
-     }
+            flowLayoutPanelFuel.Controls.Add(new FuelCatalogControl(item));
+        }
 
-    public async void UpdateServicesRow() 
-    {/*
-        flowLayoutPanelServices.Controls.Clear();
-
-        List<Services> services = await servicesController.GetAllServicesAsync();
-
-        foreach (var serv in services)
-        {
-            flowLayoutPanelServices.Controls.Add(new ServicesCatalogControl(serv));
-        }*/
-    }   
+    }
+     
 
 }

@@ -2,6 +2,7 @@
 using AutoTransportationServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -90,7 +91,23 @@ public class PersonController : ControllerBase
     public async Task<IActionResult> Put(Guid id, [FromBody] Person value)
     {
         value.Id = id;
-        _context.Persons.Update(value);
+
+        var person = _context.Persons.FirstOrDefault(a => a.Login == value.Login);
+
+        if (person != null && person.Id != value.Id) { return BadRequest("login exist"); }
+
+        var edit = _context.Persons.Find(id);
+
+        edit.Name = value.Name;
+        edit.Surname = value.Surname;
+        edit.Phone = value.Phone;
+        edit.Email = value.Email;
+        edit.Address = value.Address;
+        edit.Login = value.Login;
+        edit.Password = value.Password;
+
+
+        _context.Persons.Update(edit);
         _context.SaveChanges();
         return Ok(value);
     }

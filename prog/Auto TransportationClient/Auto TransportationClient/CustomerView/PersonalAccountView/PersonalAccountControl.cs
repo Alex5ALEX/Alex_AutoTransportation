@@ -7,37 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Auto_TransportationClient.Models;
+using Auto_TransportationClient.Logic;
+using Auto_TransportationClient.Controller;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace Auto_TransportationClient.CustomerView;
 
 public partial class PersonalAccountControl : UserControl
 {
-    //public CustomerDTO Customer;
+    public Customer Customer;
 
-    private ClientForm mainForm;
+    private ClientForm clientForm;
 
+    public PersonController personController;
 
-    //public CustomerController customerController;
+    public CustomerController customerController;
 
-    //public Validation validation;
+    public Validation validation;
 
-    public PersonalAccountControl()//ClientForm mainForm,CustomerDTO Customer)
+    public PersonalAccountControl(ClientForm clientForm, Customer Customer)
     {
-        //this.Customer = Customer;
-        //this.mainForm = mainForm;
+        this.clientForm = clientForm;
+        this.Customer = Customer;
+        
 
         InitializeComponent();
         InitData();
 
-        buttonMenu.Click += mainForm.ShowMenuButton;
+        buttonMenu.Click += clientForm.ShowMenuButton;
         buttonEdit.Click += Edit;
     }
 
     public void InitData()
-    {/*
+    {
         validation = new Validation();
 
-        customerController = new CustomerController(mainForm.httpClient);
+        customerController = new CustomerController(clientForm.httpClient);
+        personController = new PersonController(clientForm.httpClient);
 
         textBoxName.Text = Customer.Person.Name;
         textBoxSurname.Text = Customer.Person.Surname;
@@ -45,11 +52,11 @@ public partial class PersonalAccountControl : UserControl
         textBoxEmail.Text = Customer.Person.Email;
         textBoxAddres.Text = Customer.Person.Address;
         textBoxLogin.Text = Customer.Person.Login;
-        textBoxPassword.Text = Customer.Person.Password;*/
+        textBoxPassword.Text = Customer.Person.Password;
     }
 
     private async void Edit(object? sender, EventArgs e)
-    {/*
+    {
         if (string.IsNullOrWhiteSpace(textBoxName.Text) ||
         string.IsNullOrWhiteSpace(textBoxSurname.Text) ||
         string.IsNullOrWhiteSpace(textBoxPhone.Text) ||
@@ -76,17 +83,17 @@ public partial class PersonalAccountControl : UserControl
 
 
 
-        if (await customerController.Put(Customer))
+        if (await personController.Put(Customer.Person))
         {
-            mainForm.Customer = Customer;
-            //mainController.UpdateData();
+            clientForm.Customer = Customer;
         }
         else
         {
             MessageBox.Show("Login существует");
             return;
         }
-        */
+
+
     }
 
 }

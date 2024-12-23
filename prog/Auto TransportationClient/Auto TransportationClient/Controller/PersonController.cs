@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -68,6 +69,13 @@ public class PersonController
 
     }
 
+    public async Task<bool> Put(Person person)
+    {
+        var response = await httpClient.PutAsJsonAsync(urlPerson + $"/{person.Id}", person);
 
+        if (!response.IsSuccessStatusCode) { return false; }
+
+        return true;
+    }
 
 }

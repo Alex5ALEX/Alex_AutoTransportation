@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Auto_TransportationClient.Models;
 using Auto_TransportationClient.Controller;
+using Auto_TransportationClient.CustomerView.TransportationClientView;
 
 namespace Auto_TransportationClient.CustomerView;
+
 
 public partial class ClientForm : Form
 {
@@ -25,11 +27,11 @@ public partial class ClientForm : Form
     public PersonController personController;
 
 
-    //public PersonalAccountControl personalAccountControl;
+    public PersonalAccountControl personalAccountControl;
 
 
     public CatalogControl catalogControl;
-    public OrderClientControl orderControl;
+    public TransportationControl transportatioControl;
 
 
     public ClientForm(Person Person)
@@ -74,13 +76,13 @@ public partial class ClientForm : Form
 
     public async void InitControls()
     {
-        //personalAccountControl = new PersonalAccountControl(this, Customer);
+        personalAccountControl = new PersonalAccountControl(this, Customer);
         catalogControl = new CatalogControl(this);
-        orderControl = new OrderClientControl(this);
+        transportatioControl = new TransportationControl(this, Customer);
 
-        //Controls.Add(personalAccountControl);
+        Controls.Add(personalAccountControl);
         Controls.Add(catalogControl);
-        Controls.Add(orderControl);
+        Controls.Add(transportatioControl);
 
         HideMainControls();
         HideMenuControl();
@@ -90,12 +92,12 @@ public partial class ClientForm : Form
     private void InitPersonalControl(object sender, EventArgs e)
     {
         HideAllControls();
-        //personalAccountControl.Visible = true;
+        personalAccountControl.Visible = true;
     }
     private void InitOrderControl(object sender, EventArgs e)
     {
         HideAllControls();
-        orderControl.Visible = true;
+        transportatioControl.Visible = true;
     }
 
     private void InitCatalogControl(object sender, EventArgs e)
@@ -121,9 +123,9 @@ public partial class ClientForm : Form
 
     private void HideMainControls()
     {
-        //personalAccountControl.Visible = false;
+        personalAccountControl.Visible = false;
         catalogControl.Visible = false;
-        orderControl.Visible = false;
+        transportatioControl.Visible = false;
     }
 
 
@@ -141,7 +143,7 @@ public partial class ClientForm : Form
 
     public void ShowMenuControl()
     {
-        //groupBoxMenu.BringToFront();
+        groupBoxMenu.BringToFront();
         groupBoxMenu.Visible = true;
     }
 

@@ -119,6 +119,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = Properties.Resources.garage;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(482, 190);
             pictureBox1.Name = "pictureBox1";
@@ -137,7 +138,7 @@
             Controls.Add(buttonMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ClientForm";
-            Text = "Computer Center";
+            Text = "Garage";
             groupBoxMenu.ResumeLayout(false);
             groupBoxMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="CustomerView\TransportationClientView\RowView\" />
     <Folder Include="RegistrationView\" />
-    <Folder Include="CustomerView\" />
     <Folder Include="res\image\" />
   </ItemGroup>
 

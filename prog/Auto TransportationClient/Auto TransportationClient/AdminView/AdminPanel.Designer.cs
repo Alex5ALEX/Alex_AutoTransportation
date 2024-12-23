@@ -28,6 +28,7 @@ partial class AdminPanel
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
         buttonMenu = new Button();
         groupBoxMenu = new GroupBox();
         optionAdmin = new Button();
@@ -196,6 +197,7 @@ partial class AdminPanel
         Controls.Add(labelHello);
         Controls.Add(groupBoxMenu);
         Controls.Add(buttonMenu);
+        Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "AdminPanel";
         Text = "AdminPanel";
         groupBoxMenu.ResumeLayout(false);

@@ -66,9 +66,9 @@ public class CustomerController : ControllerBase
     {
         value.Id = id;
 
-        var person = _context.Persons.FirstOrDefault(f => f.Login == value.Person.Login);
+        //var person = _context.Persons.FirstOrDefault(f => f.Login == value.Person.Login);
 
-        if (person != null) { return BadRequest("login exist"); }
+        //if (person != null) {return BadRequest("login exist");}
 
         _context.Persons.Update(value.Person);
         _context.Customers.Update(value);
